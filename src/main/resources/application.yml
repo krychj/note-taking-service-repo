@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: note-taking-service
+
+  mongodb:
+    uri: mongodb://192.168.196.130:2717/
+    database: bluestaq_user_notes_db
+    autoIndexCreation: true
