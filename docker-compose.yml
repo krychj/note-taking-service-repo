@@ -1,0 +1,30 @@
+name: note-taking-service
+
+services:
+  mongo:
+    image: mongo:7
+    container_name: note-taking-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh --quiet
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+  app:
+    build: .
+    container_name: note-taking-service
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_MONGODB_URI: mongodb://mongo:27017/bluestaq_itdepartment_user_notes_db
+    depends_on:
+      mongo:
+        condition: service_healthy
+
+volumes:
+  mongo-data:
