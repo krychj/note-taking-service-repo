@@ -15,6 +15,6 @@ spring:
         default-page-size: 20
   
   mongodb:
-    uri: mongodb://192.168.196.130:2717/
+    uri: mongodb://127.0.0.1:2717/
     database: bluestaq_itdepartment_user_notes_db
     auto-index-creation: true
