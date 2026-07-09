@@ -1,8 +1,8 @@
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health, info, env, configprops
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: health, info, env, configprops
 
 spring:
   application:
