@@ -12,8 +12,8 @@ import jakarta.validation.constraints.Size;
 public class Note {
 	
 	@Id
-	private String id;
-	
+	private String id;	
+
 	@NotBlank
 	@Size(max = 200)
 	private String title;
@@ -29,6 +29,21 @@ public class Note {
 	private Instant createdAt;
 	private Instant lastUpdatedAt;
 
+	public Note() {
+		
+	}
+	
+	Note(String id, @NotBlank @Size(max = 200) String title, @NotBlank @Size(max = 3000) String content,
+			@NotBlank @Size(max = 200) String author, Instant createdAt, Instant lastUpdatedAt) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.content = content;
+		this.author = author;
+		this.createdAt = createdAt;
+		this.lastUpdatedAt = lastUpdatedAt;
+	}
+	
 	public String getTitle() {
 		return title;
 	}
