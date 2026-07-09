@@ -2,30 +2,32 @@ package com.bluestaq.note_taking_service.dto;
 
 import java.time.Instant;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 public class NoteDto {	
 	
-	String id;
+	@Schema(hidden = true)
+	private String id;
 	
-	@NotNull
-	@NotEmpty
+	@NotBlank
 	@Size(max = 200)
 	private String title;	
 
-	@NotNull
-	@NotEmpty
+	@NotBlank
 	@Size(max = 3000)
 	private String content;
 	
-	@NotNull
-	@NotEmpty
+	@NotBlank
 	@Size(max = 200)
 	private String author;
 	
+	@Schema(hidden = true)
 	Instant createdAt;
+	@Schema(hidden = true)
 	Instant lastUpdatedAt;
 	
 	public NoteDto() {

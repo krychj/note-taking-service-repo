@@ -5,33 +5,29 @@ import java.time.Instant;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 @Document(collection = "notes")
 public class Note {
 	
 	@Id
-	String id;
+	private String id;
 	
-	@NotNull
-	@NotEmpty
+	@NotBlank
 	@Size(max = 200)
 	private String title;
 	
-	@NotNull
-	@NotEmpty
+	@NotBlank
 	@Size(max = 3000)
 	private String content;
 	
-	@NotNull
-	@NotEmpty
+	@NotBlank
 	@Size(max = 200)
 	private String author;
 	
-	Instant createdAt;
-	Instant lastUpdatedAt;
+	private Instant createdAt;
+	private Instant lastUpdatedAt;
 
 	public String getTitle() {
 		return title;
