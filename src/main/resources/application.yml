@@ -1,8 +1,8 @@
-#management:
-#  endpoints:
-#    web:
-#      exposure:
-#        include: health, info, env, configprops
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, env, configprops
 
 spring:
   application:
@@ -15,6 +15,5 @@ spring:
         default-page-size: 20
   
   mongodb:
-    uri: mongodb://127.0.0.1:2717/
-    database: bluestaq_itdepartment_user_notes_db
+    uri: ${SPRING_MONGODB_URI:mongodb://localhost:27017/bluestaq_itdepartment_user_notes_db}    
     auto-index-creation: true
