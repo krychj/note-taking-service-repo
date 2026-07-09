@@ -1,4 +1,4 @@
-package com.bluestaq.mapper;
+package com.bluestaq.note_taking_service.mapper;
 
 import java.time.Instant;
 
@@ -12,11 +12,20 @@ public class NoteMapper {
 		entity.setTitle(dto.getTitle());		
 		entity.setContent(dto.getContent());
 		entity.setAuthor(dto.getAuthor());
-		entity.setLastUpdated(Instant.now());
+		
+		Instant now = Instant.now();
+		Instant createdAt = dto.getCreatedAt();
+		if(createdAt != null) {
+			entity.setCreatedAt(createdAt);
+		} else {
+			entity.setCreatedAt(now);
+		}
+		entity.setLastUpdatedAt(now);
 		return entity;
 	}
 
 	public static NoteDto toNoteDto(Note entity) {
-		return new NoteDto(entity.getId(), entity.getTitle(), entity.getContent(), entity.getAuthor());
+		return new NoteDto(entity.getId(), entity.getTitle(), 
+				entity.getContent(), entity.getAuthor(), entity.getCreatedAt(), entity.getLastUpdatedAt());
 	}
 }

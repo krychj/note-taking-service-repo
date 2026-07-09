@@ -1,7 +1,11 @@
 package com.bluestaq.note_taking_service.service;
 
+import java.time.Instant;
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.bluestaq.note_taking_service.entity.Note;
@@ -16,8 +20,8 @@ public class NoteTakingService {
 		this.noteRepo = noteRepo;
 	}
 	
-	public Note findNoteById(String id) {
-		return noteRepo.findById(id).orElse(null);
+	public Optional<Note> findNoteById(String id) {
+		return noteRepo.findById(id);
 	}
 
 	public List<Note> findNoteByAuthor(String author) {
@@ -28,8 +32,12 @@ public class NoteTakingService {
 		return noteRepo.findNoteByTitleKeyword(keyword);
 	}
 	
-	public List<Note> findAll() {
-		return noteRepo.findAll();
+	public Page<Note> findNotesByCreatedAtBetween(Instant from, Instant to, Pageable pageable) {
+		return noteRepo.findNotesByCreatedAtBetween(from, to, pageable);
+	}
+	
+	public Page<Note> findAll(Pageable pageable) {
+		return noteRepo.findAll(pageable);
 	}
 	
 	public Note saveNote(Note note) {

@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Document(collection = "notes")
 public class Note {
@@ -16,17 +17,21 @@ public class Note {
 	
 	@NotNull
 	@NotEmpty
+	@Size(max = 200)
 	private String title;
 	
 	@NotNull
 	@NotEmpty
+	@Size(max = 3000)
 	private String content;
 	
 	@NotNull
 	@NotEmpty
+	@Size(max = 200)
 	private String author;
 	
-	Instant lastUpdated;
+	Instant createdAt;
+	Instant lastUpdatedAt;
 
 	public String getTitle() {
 		return title;
@@ -52,15 +57,23 @@ public class Note {
 		this.author = author;
 	}
 
-	public Instant getLastUpdated() {
-		return lastUpdated;
+	public Instant getLastUpdatedAt() {
+		return lastUpdatedAt;
 	}
 
-	public void setLastUpdated(Instant lastUpdated) {
-		this.lastUpdated = lastUpdated;
+	public void setLastUpdatedAt(Instant lastUpdatedAt) {
+		this.lastUpdatedAt = lastUpdatedAt;
 	}
 
 	public String getId() {
 		return id;
+	}
+
+	public Instant getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Instant createdAt) {
+		this.createdAt = createdAt;
 	}
 }
