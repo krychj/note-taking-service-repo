@@ -1,0 +1,20 @@
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: health, info, env, configprops
+
+spring:
+  application:
+    name: note-taking-service
+
+  data:
+    web:
+      pageable:
+        max-page-size: 100 
+        default-page-size: 20
+  
+  mongodb:
+    uri: mongodb://192.168.196.130:2717/
+    database: bluestaq_itdepartment_user_notes_db
+    auto-index-creation: true
