@@ -68,10 +68,11 @@ Every exception raised across the API, for example a note that cannot be found o
 - **Add more unit tests and integration tests**, for example using TestContainers for MongoDB, to exercise the full stack rather than relying on the service layer being mocked.
 - **Add tracking of note modification history.** I would consider a pub/sub approach with Apache Kafka, where each change to a note is retained in a topic log and can be replayed if needed. Kafka consumers could subscribe to a specific topic and listen for notes with specific attributes (e.g. via message headers).
 - **Improve `GlobalExceptionHandler`** and add additional custom exceptions to cover a wider range of edge cases.
+- **Secure the service** with proper authentication and authorization safeguards utilizing JWT.
 
 ## Source Control | Git Flow
 
-The public GitHub repository is available at: [https://github.com/krychj/note-taking-service-repo.git](https://github.com/krychj/note-taking-service-repo.git)
+The public GitHub repository is available at: [https://github.com/krychj/note-taking-service-repo](https://github.com/krychj/note-taking-service-repo)
 
 The repository follows a Git Flow-based process: a `develop` branch plus short-lived feature branches for individual pieces of work.
 Changes are committed and pushed to a feature branch first, then a pull request is opened, reviewed, and approved before being merged into `develop`.
