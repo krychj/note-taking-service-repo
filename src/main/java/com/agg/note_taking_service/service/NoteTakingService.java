@@ -1,4 +1,4 @@
-package com.bluestaq.note_taking_service.service;
+package com.agg.note_taking_service.service;
 
 import java.time.Instant;
 import java.util.List;
@@ -8,8 +8,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.bluestaq.note_taking_service.entity.Note;
-import com.bluestaq.note_taking_service.repo.NoteRepo;
+import com.agg.note_taking_service.entity.Note;
+import com.agg.note_taking_service.repo.NoteRepo;
 
 @Service
 public class NoteTakingService {

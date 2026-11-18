@@ -1,4 +1,4 @@
-package com.bluestaq.note_taking_service.repo;
+package com.agg.note_taking_service.repo;
 
 import java.time.Instant;
 import java.util.List;
@@ -8,7 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
-import com.bluestaq.note_taking_service.entity.Note;
+import com.agg.note_taking_service.entity.Note;
 
 public interface NoteRepo extends MongoRepository<Note, String> {
 	

@@ -1,9 +1,9 @@
-package com.bluestaq.note_taking_service.mapper;
+package com.agg.note_taking_service.mapper;
 
 import java.time.Instant;
 
-import com.bluestaq.note_taking_service.dto.NoteDto;
-import com.bluestaq.note_taking_service.entity.Note;
+import com.agg.note_taking_service.dto.NoteDto;
+import com.agg.note_taking_service.entity.Note;
 
 public class NoteMapper {
 	

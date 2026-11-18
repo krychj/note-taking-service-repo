@@ -1,4 +1,4 @@
-package com.bluestaq.note_taking_service.config;
+package com.agg.note_taking_service.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

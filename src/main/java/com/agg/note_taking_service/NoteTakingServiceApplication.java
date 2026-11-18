@@ -1,4 +1,4 @@
-package com.bluestaq.note_taking_service;
+package com.agg.note_taking_service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

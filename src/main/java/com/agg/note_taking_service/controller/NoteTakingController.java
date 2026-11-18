@@ -1,4 +1,4 @@
-package com.bluestaq.note_taking_service.controller;
+package com.agg.note_taking_service.controller;
 
 import java.time.Instant;
 import java.util.List;
@@ -18,11 +18,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bluestaq.note_taking_service.dto.NoteDto;
-import com.bluestaq.note_taking_service.entity.Note;
-import com.bluestaq.note_taking_service.exception.NoteNotFoundException;
-import com.bluestaq.note_taking_service.mapper.NoteMapper;
-import com.bluestaq.note_taking_service.service.NoteTakingService;
+import com.agg.note_taking_service.dto.NoteDto;
+import com.agg.note_taking_service.entity.Note;
+import com.agg.note_taking_service.exception.NoteNotFoundException;
+import com.agg.note_taking_service.mapper.NoteMapper;
+import com.agg.note_taking_service.service.NoteTakingService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -52,7 +52,7 @@ public class NoteTakingController {
                 examples = @ExampleObject(name = "Found note", value = """
                     {
                       "id": "64f1a2b3c4d5e6f7a8b9c0d1",
-                      "title": "Bluestaq Project 1",
+                      "title": "AGG Project 1",
                       "content": "Keep things as simple as possible.",
                       "author": "user-1",
                       "createdAt": "2026-07-01T14:32:00Z",
@@ -138,7 +138,7 @@ public class NoteTakingController {
         content = @Content(mediaType = "application/json", schema = @Schema(implementation = NoteDto.class),
             examples = @ExampleObject(name = "New note", value = """
                 {
-                  "title": "Bluestaq Project 1",
+                  "title": "AGG Project 1",
                   "content": "Keep things as simple as possible",
                   "author": "user-1"
                 }

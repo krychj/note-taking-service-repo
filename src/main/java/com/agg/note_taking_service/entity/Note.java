@@ -1,4 +1,4 @@
-package com.bluestaq.note_taking_service.entity;
+package com.agg.note_taking_service.entity;
 
 import java.time.Instant;
 

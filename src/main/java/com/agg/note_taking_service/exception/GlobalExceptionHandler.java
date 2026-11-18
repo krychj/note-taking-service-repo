@@ -1,4 +1,4 @@
-package com.bluestaq.note_taking_service.exception;
+package com.agg.note_taking_service.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

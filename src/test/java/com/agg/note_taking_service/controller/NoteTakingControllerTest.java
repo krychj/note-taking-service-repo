@@ -1,4 +1,4 @@
-package com.bluestaq.note_taking_service.controller;
+package com.agg.note_taking_service.controller;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
@@ -24,10 +24,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
-import com.bluestaq.note_taking_service.dto.NoteDto;
-import com.bluestaq.note_taking_service.entity.Note;
-import com.bluestaq.note_taking_service.entity.NoteTestFactory;
-import com.bluestaq.note_taking_service.service.NoteTakingService;
+import com.agg.note_taking_service.controller.NoteTakingController;
+import com.agg.note_taking_service.dto.NoteDto;
+import com.agg.note_taking_service.entity.Note;
+import com.agg.note_taking_service.entity.NoteTestFactory;
+import com.agg.note_taking_service.service.NoteTakingService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @WebMvcTest(NoteTakingController.class)
@@ -47,7 +48,7 @@ class NoteTakingControllerTest {
     void setUp() {
         sampleNote = NoteTestFactory.create(
                 "64f1a2b3c4d5e6f7a8b9c0d1",
-                "Bluestaq Department ID Project 1",
+                "AGG Department ID Project 1",
                 "When designing and implementing software, keep things as simple as possible.",
                 "user-1",
                 Instant.parse("2026-07-01T14:32:00Z"),
@@ -64,7 +65,7 @@ class NoteTakingControllerTest {
         mockMvc.perform(get("/api/v1/notes/{id}", "64f1a2b3c4d5e6f7a8b9c0d1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").value("64f1a2b3c4d5e6f7a8b9c0d1"))
-                .andExpect(jsonPath("$.title").value("Bluestaq Department ID Project 1"))
+                .andExpect(jsonPath("$.title").value("AGG Department ID Project 1"))
                 .andExpect(jsonPath("$.author").value("user-1"));
     }
 
@@ -95,12 +96,12 @@ class NoteTakingControllerTest {
     @Test
     @DisplayName("Happy path: valid keyword value supplied, and one note should be returned.")
     void getNotesByTitleKeyword_returnsMatchingNotes() throws Exception {
-        when(noteTakingService.findNoteByTitleKeyword("Bluestaq"))
+        when(noteTakingService.findNoteByTitleKeyword("AGG"))
                 .thenReturn(List.of(sampleNote));
 
-        mockMvc.perform(get("/api/v1/notes").param("keyword", "Bluestaq"))
+        mockMvc.perform(get("/api/v1/notes").param("keyword", "AGG"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].title").value("Bluestaq Department ID Project 1"));
+                .andExpect(jsonPath("$[0].title").value("AGG Department ID Project 1"));
     }
 
     // Test GET ?from=&to=
@@ -136,7 +137,7 @@ class NoteTakingControllerTest {
     @DisplayName("Happy path: valid note supplied to the endpoint, and one note should be returned.")
     void createNote_withValidBody_returns200() throws Exception {
         NoteDto request = new NoteDto();
-        request.setTitle("Bluestaq Department ID Project 1");
+        request.setTitle("AGG Department ID Project 1");
         request.setContent("When designing and implementing software, keep things as simple as possible.");
         request.setAuthor("user-1");
 
@@ -146,7 +147,7 @@ class NoteTakingControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.title").value("Bluestaq Department ID Project 1"));
+                .andExpect(jsonPath("$.title").value("AGG Department ID Project 1"));
     }
 
     @Test

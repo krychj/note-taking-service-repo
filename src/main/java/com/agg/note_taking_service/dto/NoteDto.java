@@ -1,4 +1,4 @@
-package com.bluestaq.note_taking_service.dto;
+package com.agg.note_taking_service.dto;
 
 import java.time.Instant;
 
